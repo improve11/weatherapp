@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>История</h2>
+    {% if last_city %}
+        <p>Последний поиск города: {{ last_city }}</p>
+    {% else %}
+        <p>История не найдена.</p>
+    {% endif %}
+    <h3>Город искался столько раз</h3>
+    <div id="history-data"></div>
+
+    <script>
+        fetch("/api/history")
+            .then(response => response.json())
+            .then(data => {
+                const historyDiv = document.getElementById('history-data');
+                for (const city in data) {
+                    const p = document.createElement('p');
+                    p.innerText = `${city}: ${data[city]} раз(а)`;
+                    historyDiv.appendChild(p);
+                }
+            });
+    </script>
+{% endblock %}
