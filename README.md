@@ -7,7 +7,7 @@
 1. Клонируйте репозиторий:
    
 bash
-   git clone https://github.com/yourusername/weather-app.git
+   git clone https://github.com/yourusername/weatherapp.git
    cd weather-app
    
 
