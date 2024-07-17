@@ -1,7 +1,7 @@
 import requests
 
 def get_coordinates(city):
-    opencage_api_key = 'b9ba98c2aaa249b8b4c972117ec90252'  # замените на ваш ключ API
+    opencage_api_key = 'b9ba98c2aaa249b8b4c972117ec90252'  
     api_url = f"https://api.opencagedata.com/geocode/v1/json?q={city}&key={opencage_api_key}"
     response = requests.get(api_url)
     data = response.json()
@@ -26,7 +26,7 @@ def get_weather(city):
         return str(e)
 
 def get_city_suggestions(query):
-    geonames_api_key = 'impro'  # Замените на ваш ключ API
+    geonames_api_key = 'impro'  
     api_url = f"http://api.geonames.org/searchJSON?q={query}&maxRows=5&username={geonames_api_key}"
     response = requests.get(api_url)
     return response.json()
